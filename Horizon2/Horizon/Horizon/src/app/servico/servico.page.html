@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Serviços</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Serviços</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-searchbar [(ngModel)]="filtroDescricao" (ionInput)="filtrarServicos()" placeholder="Pesquisar por descrição"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item 
+            *ngFor="let servico of servicoFiltrado"
+            [class.expanded]="servico.expanded"
+            (click)="toggleServicos(servico)"
+            lines="none">
+            <ion-label>
+              <h2>{{ getFuncionarioNomes(servico.idFuncionarios) }}</h2>
+              <div *ngIf="servico.expanded" class="servico">
+                <p>Descrição: {{ servico.descricao | slice:0:5 }}</p>
+                <p>Data de Inicio: {{ servico.data }}</p>
+                <p>Data Final: {{ servico.dataFinal }}</p>
+                <p>Tipo do Serviço: {{ servico.tipoServico }}</p>
+                <p>Situação: {{ servico.situacao }}</p>
+              </div>
+            </ion-label>
+          </ion-item>
+        </ion-list> 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

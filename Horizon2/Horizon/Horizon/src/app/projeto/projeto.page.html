@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Projetos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Projetos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-searchbar [(ngModel)]="filtroDescricao" (ionInput)="filtrarProjetos()" placeholder="Pesquisar por descrição"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item 
+            *ngFor="let projeto of projetosFiltrados"
+            [class.expanded]="projeto.expanded"
+            (click)="toggleProjeto(projeto)"
+            lines="none">
+            <ion-label>
+              <h2>{{ getClienteNomeById(projeto.idClientes) }}</h2>
+              <p>{{ getServicoDescricaoById(projeto.idServicos) }}</p>
+              <div *ngIf="projeto.expanded" class="projeto-details">
+                <p>Data: {{ projeto.data }}</p>
+                <p>Data Final: {{ projeto.dataFinal }}</p>
+                <p>Valor: {{ projeto.valor }}</p>
+                <p>Descrição: {{ projeto.descricao | slice:0:5 }}</p>
+                <p>Situação: {{ projeto.situacao }}</p>
+              </div>
+            </ion-label>
+          </ion-item>
+        </ion-list> 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

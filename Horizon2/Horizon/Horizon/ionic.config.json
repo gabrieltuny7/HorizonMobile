@@ -1,0 +1,7 @@
+{
+  "name": "Horizon",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

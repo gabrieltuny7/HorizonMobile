@@ -1,0 +1,194 @@
+<ion-app>
+  <!-- Sidebar (Menu Lateral) -->
+  <ion-menu side="end" content-id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title style="background-color: black; color: #ffffff;">M<span style="color: aqua;">e</span>nu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item button routerLink="/home">
+          <ion-label>Home</ion-label>
+        </ion-item>
+        <ion-item button routerLink="/cliente">
+          <ion-label>Clientes</ion-label>
+        </ion-item>
+        <ion-item button routerLink="/funcionario">
+          <ion-label>Funcionários</ion-label>
+        </ion-item>
+        <ion-item button routerLink="/servico">
+          <ion-label>Serviços</ion-label>
+        </ion-item>
+        <ion-item button routerLink="/projeto">
+          <ion-label>Projeto</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Página Principal -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar style="background-color: black;">
+        <ion-buttons slot="start">
+          <ion-menu-button style="color: white;"></ion-menu-button>
+        </ion-buttons>
+        <app-space></app-space>
+      </ion-toolbar>
+    </ion-header>
+
+    <!-- Conteúdo principal -->
+    <ion-content fullscreen class="ion-padding" style="background-color: black;">
+      <h1 style="color: rgb(255, 255, 255); text-align: center; background-color: black;">
+        Dashboard <span style="text-align: center; color: aqua;">&lbrace; H &rbrace;</span>
+      </h1>
+
+      <app-space></app-space>
+
+      <!-- Informações abaixo do cabeçalho -->
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div class="projects-section">
+              <div class="projects-status">
+                <div class="item-status box">
+                  <a class="status-type">Clientes</a>
+                  <span class="status-number">{{ quantidadeClientes }}</span>
+                </div>
+                <div class="item-status box">
+                  <a class="status-type">Funcionários</a>
+                  <span class="status-number">{{ quantidadeFuncionarios }}</span>
+                </div>
+                <div class="item-status box">
+                  <a class="status-type">Serviços</a>
+                  <span class="status-number">{{ quantidadeServicos }}</span>
+                </div>
+                <div class="item-status box">
+                  <a class="status-type">Projetos</a>
+                  <span class="status-number">{{ quantidadeProjetos }}</span>
+                </div>
+                <div class="item-status box">
+                  <a class="status-type">Valor</a>
+                  <span class="status-number">R$ {{ valorTotalProjetos }}</span>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div class="projects-container">
+              <div class="project-box-wrapper">
+                <div class="project-box">
+                  <div class="project-box-header">
+                    <p class="time" id="current-date"></p>
+                  </div>
+                  <div class="project-box-content-header">
+                    <p class="box-content-header" style="font-size: 20px;">Web<br>
+                      Designing</p>
+                  </div>
+                  <div class="box-progress-wrapper">
+                    <p class="box-progress-header" style="font-size: 12px; color: aqua;">Quantidade</p>
+                  </div>
+                  <div class="project-box-footer">
+                    <div class="days-left" data-tipo="Web Designing">00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-box-wrapper">
+                <div class="project-box">
+                  <div class="project-box-header">
+                    <p class="time" id="current-date"></p>
+                  </div>
+                  <div class="project-box-content-header">
+                    <p class="box-content-header" style="font-size: 20px;">Testing<br>
+                      Software</p>
+                  </div>
+                  <div class="box-progress-wrapper">
+                    <p class="box-progress-header" style="font-size: 12px; color: aqua;">Quantidade</p>
+                  </div>
+                  <div class="project-box-footer">
+                    <div class="days-left" data-tipo="Testing">00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-box-wrapper">
+                <div class="project-box">
+                  <div class="project-box-header">
+                    <p class="time" id="current-date"></p>
+                  </div>
+                  <div class="project-box-content-header">
+                    <p class="box-content-header" style="font-size: 20px;">Software
+                      <br>Maintenance</p>
+                  </div>
+                  <div class="box-progress-wrapper">
+                    <p class="box-progress-header" style="font-size: 12px; color: aqua;">Quantidade</p>
+                  </div>
+                  <div class="project-box-footer">
+                    <div class="days-left" data-tipo="Software Maintenance">00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-box-wrapper">
+                <div class="project-box">
+                  <div class="project-box-header">
+                    <p class="time" id="current-date"></p>
+                  </div>
+                  <div class="project-box-content-header">
+                    <p class="box-content-header" style="font-size: 20px;">Data<br>
+                      Analysis</p>
+                  </div>
+                  <div class="box-progress-wrapper">
+                    <p class="box-progress-header" style="font-size: 12px; color: aqua;">Quantidade</p>
+                  </div>
+                  <div class="project-box-footer">
+                    <div class="days-left" data-tipo="Data Analysis">00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-box-wrapper">
+                <div class="project-box">
+                  <div class="project-box-header">
+                    <p class="time" id="current-date"></p>
+                  </div>
+                  <div class="project-box-content-header">
+                    <p class="box-content-header" style="font-size: 20px;">Web<br>
+                      Development</p>
+                  </div>
+                  <div class="box-progress-wrapper">
+                    <p class="box-progress-header" style="font-size: 12px; color: aqua;">Quantidade</p>
+                  </div>
+                  <div class="project-box-footer">
+                    <div class="days-left" data-tipo="Web Development">00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-box-wrapper">
+                <div class="project-box">
+                  <div class="project-box-header">
+                    <p class="time" id="current-date"></p>
+                  </div>
+                  <div class="project-box-content-header">
+                    <p class="box-content-header" style="font-size: 20px;">Outros<br>
+                      Serviços</p>
+                  </div>
+                  <div class="box-progress-wrapper">
+                    <p class="box-progress-header" style="font-size: 12px; color: aqua;">Quantidade</p>
+                  </div>
+                  <div class="project-box-footer">
+                    <div class="days-left" data-tipo="Outros">00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </div>
+</ion-app>
