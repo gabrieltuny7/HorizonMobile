@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <h1 class="page-title">
+    Projetos <span class="highlight">&lbrace; H &rbrace;</span>
+  </h1>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12"> 
+        <!-- Campo de pesquisa -->
+        <div class="search-container">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M23.707 22.293l-6.546-6.546a9.984 9.984 0 0 0 2.38-6.547C19.54 4.014 15.527 0 10 0S.46 4.014.46 9c0 4.987 4.013 9 9 9a9.984 9.984 0 0 0 6.547-2.38l6.546 6.546a1 1 0 0 0 1.414-1.414zM10 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/>
+          </svg>
+          <input 
+            type="text" 
+            [(ngModel)]="filtroDescricao" 
+            (input)="filtrarProjetos()" 
+            placeholder="Pesquisar por descrição" 
+            class="search-input"
+          />
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item 
+            *ngFor="let projeto of projetosFiltrados"
+            [class.expanded]="projeto.expanded"
+            (click)="toggleProjeto(projeto)"
+            lines="none"
+            button>
+            <ion-label>
+              <div class="projeto-box" [class.expanded]="projeto.expanded">
+                <h2>{{ projeto.descricao }}</h2>
+                <div class="projeto-details" [class.show-details]="projeto.expanded">
+                  <div class="projeto-detail-box">
+                    <p><strong style="color: aqua;">Cliente:</strong> {{ getClienteNomeById(projeto.idClientes) }}</p>
+                    <p><strong style="color: aqua;">Serviço:</strong> {{ getServicoDescricaoById(projeto.idServicos) }}</p>
+                    <p><strong style="color: aqua;">Data de Início:</strong> {{ projeto.data }}</p>
+                    <p><strong style="color: aqua;">Data Final:</strong> {{ projeto.dataFinal }}</p>
+                    <p><strong style="color: aqua;">Valor:</strong> {{ projeto.valor }}</p>
+                    <p><strong style="color: aqua;">Situação:</strong> {{ projeto.situacao }}</p>
+                  </div>
+                </div>
+              </div>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        <!-- Mostrar app-space quando qualquer projeto estiver expandido -->
+        <app-space *ngIf="isAnyProjetoExpanded()"></app-space>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

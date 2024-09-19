@@ -1,0 +1,59 @@
+<ion-app>
+  <h1 class="page-title">
+    Funcionarios <span class="highlight">&lbrace; H &rbrace;</span>
+  </h1>  
+  <br>
+  <ion-content>
+
+
+  <ion-grid>
+    <ion-row>
+    <ion-col size="12">
+      <!-- Campo de pesquisa personalizado -->
+      <div class="search-container">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M23.707 22.293l-6.546-6.546a9.984 9.984 0 0 0 2.38-6.547C19.54 4.014 15.527 0 10 0S.46 4.014.46 9c0 4.987 4.013 9 9 9a9.984 9.984 0 0 0 6.547-2.38l6.546 6.546a1 1 0 0 0 1.414-1.414zM10 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/>
+        </svg>
+          <input
+            type="text"
+            [(ngModel)]="filtroNome"
+            (input)="filtrarFuncionarios()"
+            placeholder="Pesquisar por nome"
+            class="search-input"
+          />
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item
+            *ngFor="let funcionario of funcionariosFiltrados"
+            [class.expanded]="funcionario.expanded"
+            (click)="toggleFuncionario(funcionario)"
+            lines="none"
+          >
+            <ion-label>
+              <div class="funcionario-box" [class.expanded]="funcionario.expanded">
+                <h2>{{ funcionario.nome }}</h2>
+                <div class="funcionario-details" [class.show-details]="funcionario.expanded">
+                  <div class="funcionario-detail-box">
+                  <p><strong style="color: aqua;">CPF:</strong> {{ funcionario.cpf }}</p>
+                  <p><strong style="color: aqua;">Email:</strong> {{ funcionario.email }}</p>
+                  <p><strong style="color: aqua;">Telefone:</strong> {{ funcionario.telefone }}</p>
+                  <p><strong style="color: aqua;">Cargo:</strong> {{ funcionario.cargo }}</p>
+                  <p><strong style="color: aqua;">Habilidades:</strong> {{ funcionario.habilidades }}</p>
+                  <p><strong style="color: aqua;">Data de Admissão:</strong> {{ funcionario.dataAdmissao }}</p>
+                </div>
+                </div>
+              </div>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        <app-space *ngIf="isAnyFuncionarioExpanded()"></app-space>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+</ion-app>

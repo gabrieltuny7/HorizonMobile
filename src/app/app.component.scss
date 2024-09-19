@@ -1,0 +1,18 @@
+ion-page {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Específico para transições */
+  ion-page:enter,
+  ion-page:leave {
+    transition: opacity 0.3s ease;
+  }
+  
+  ion-page:enter {
+    opacity: 1;
+  }
+  
+  ion-page:leave {
+    opacity: 0;
+  }
