@@ -1,0 +1,148 @@
+/* Geral */
+ion-content {
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+  height: 100%; /* Ocupa toda a altura disponível */
+  overflow-y: auto; /* Permite rolagem vertical */
+}
+
+/* Informações abaixo do cabeçalho */
+.projects-section {
+  margin: 0 15px;
+  margin-bottom: 20px;
+}
+ion-button {
+  --background: transparent;
+  --border-radius: 50%;
+  --box-shadow: none;
+  --color: white;
+}
+
+ion-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+
+.projects-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.projects-status {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.item-status.box {
+  background-color: #292929;
+  border-radius: 12px;
+  padding: 15px;
+  flex: 0 0 auto;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item-status.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.item-status .status-type {
+  font-weight: bold;
+  color: #00bcd4;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+
+.item-status .status-number {
+  color: #ffffff;
+  font-size: 1.4rem;
+}
+
+/* Cards de Projetos */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px 15px;
+}
+
+.project-box-wrapper {
+  flex: 1 1 calc(33% - 20px); /* Ajusta o tamanho dos cartões */
+  max-width: 320px;
+}
+
+.project-box {
+  background-color:#292929;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.project-box-header {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.project-box-content-header {
+  margin-bottom: 15px;
+}
+
+.box-content-subheader {
+  font-size: 1rem;
+  color: #00bcd4;
+}
+
+.box-progress-wrapper {
+  margin-bottom: 15px;
+}
+
+.box-progress-header {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.project-box-footer {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.project-box-footer .days-left {
+  color: #ffffff;
+}

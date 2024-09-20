@@ -1,0 +1,14 @@
+{
+  "name": "Horizon",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular-standalone",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://apipi-production-befc.up.railway.app/api"
+    }
+  ]
+}

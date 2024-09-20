@@ -1,0 +1,105 @@
+/* Geral */
+ion-content {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+  
+    height: 100%; /* Ocupa toda a altura disponível */
+    overflow-y: auto; /* Permite rolagem vertical */
+  }
+  
+  /* Estilo do título da página */
+  .page-title {
+    color: rgb(255, 255, 255); /* Cor do texto do título */
+    text-align: center;
+    background-color: #1e1e1e; /* Fundo do título igual ao fundo do conteúdo */
+    padding: 10px; /* Espaçamento interno para melhorar a aparência */
+    margin: 0; /* Remove margens para ajustar ao layout */
+    border-bottom: 1px solid #333; /* Adiciona uma linha de borda opcional */
+  }
+  
+  .page-title .highlight {
+    color: aqua; /* Cor do destaque */
+  }
+  
+  /* Estilo da caixa de pesquisa */
+  .search-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px 40px; /* Adiciona padding à direita para o ícone */
+    border-radius: 12px;
+    border: 1px solid #444;
+    color: #fff;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .search-input::placeholder {
+    color: #aaa;
+  }
+  
+  /* Estilo do ícone SVG de lupa */
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Ajuste a posição conforme necessário */
+    transform: translateY(-50%);
+    width: 24px; /* Ajuste o tamanho conforme necessário */
+    height: 24px; /* Ajuste o tamanho conforme necessário */
+    fill: #aaa; /* Ajuste a cor conforme necessário */
+  }
+  
+  
+  /* Estilo da caixa do cliente */
+  .servico-box {
+    background-color: #292929; /* Cor de fundo da caixa */
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    cursor: pointer; /* Cursor de clique */
+    color: #ffffff;
+    margin-bottom: 15px; /* Espaço entre as caixas */
+  }
+  
+  .servico-box h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* Detalhes do cliente */
+  .servico-details {
+    margin-top: 10px;
+    display: none; /* Inicialmente oculto */
+  }
+  
+  .servico-detail-box {
+    background-color: #191919; /* Cor de fundo dos detalhes */
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .servico-detail-box p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+  
+  /* Estilo quando a caixa está expandida */
+  ion-item.expanded .servico-details {
+    display: block; /* Mostrar detalhes ao expandir */
+  }
+  
+  ion-item.expanded .servico-box {
+    background-color: #333; /* Cor quando expandido */
+    padding: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Sombra mais intensa ao expandir */
+  }
+  

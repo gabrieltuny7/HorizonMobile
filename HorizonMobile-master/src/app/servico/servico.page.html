@@ -1,0 +1,59 @@
+<ion-app>
+  <h1 class="page-title">
+    Serviços <span class="highlight">&lbrace; H &rbrace;</span>
+  </h1>
+  <br>
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <!-- Campo de pesquisa personalizado -->
+          <div class="search-container">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M23.707 22.293l-6.546-6.546a9.984 9.984 0 0 0 2.38-6.547C19.54 4.014 15.527 0 10 0S.46 4.014.46 9c0 4.987 4.013 9 9 9a9.984 9.984 0 0 0 6.547-2.38l6.546 6.546a1 1 0 0 0 1.414-1.414zM10 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/>
+            </svg>
+            <input 
+              type="text" 
+              [(ngModel)]="filtroDescricao" 
+              (input)="filtrarServicos()" 
+              placeholder="Pesquisar por descrição" 
+              class="search-input"
+            />
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-list>
+            <ion-item 
+            *ngFor="let servico of servicoFiltrado"
+              [class.expanded]="servico.expanded"
+              (click)="toggleServicos(servico)"
+              lines="none"
+              button>
+              
+              <!-- Caixa do serviço -->
+              <ion-label>
+                <div class="servico-box" [class.expanded]="servico.expanded">
+                  <h2>{{ servico.descricao }}</h2>
+                  <div class="servico-details" [class.show-details]="servico.expanded">
+                    <div class="servico-detail-box">
+                      <p><strong style="color: aqua;">Funcionários:</strong> {{ getFuncionarioNomes(servico.idFuncionarios) }}</p>
+                      <p><strong style="color: aqua;">Data de Início:</strong> {{ servico.data }}</p>
+                      <p><strong style="color: aqua;">Data Final:</strong> {{ servico.dataFinal }}</p>
+                      <p><strong style="color: aqua;">Tipo de Serviço:</strong> {{ servico.tipoServico }}</p>
+                      <p><strong style="color: aqua;">Situação:</strong> {{ servico.situacao }}</p>
+                    </div>
+                  </div>
+                </div>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+          <!-- Mostrar app-space apenas quando qualquer serviço está expandido -->
+          <app-space *ngIf="isAnyServicoExpanded()"></app-space>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>
